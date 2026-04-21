@@ -1,8 +1,8 @@
 export default function Home() {
   const promises = [
-    { title: "노쇼 줄이기", desc: "예약은 지켜지는 것이 기본이 되도록." },
-    { title: "빈자리 채우기", desc: "비어버린 시간도 매출이 되도록." },
-    { title: "재방문 늘리기", desc: "한 번 온 손님이 다시 오도록." },
+    { icon: "🎯", title: "노쇼 줄이기", desc: "예약은 지켜지는 것이 기본이 되도록." },
+    { icon: "🪑", title: "빈자리 채우기", desc: "비어버린 시간도 매출이 되도록." },
+    { icon: "💝", title: "재방문 늘리기", desc: "한 번 온 손님이 다시 오도록." },
   ];
 
   return (
@@ -11,7 +11,7 @@ export default function Home() {
         <p className="text-sm tracking-widest text-rose-500 font-medium mb-4">
           DASIWA · 다시와
         </p>
-        <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6">
+        <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 mb-6 whitespace-nowrap">
           Welcome to <span className="text-rose-500">다시와</span>
         </h1>
         <p className="text-lg text-gray-600 mb-12 leading-relaxed">
@@ -26,6 +26,9 @@ export default function Home() {
               key={p.title}
               className="rounded-2xl bg-white/70 backdrop-blur border border-rose-100 p-5 shadow-sm"
             >
+              <div className="text-3xl mb-2" aria-hidden>
+                {p.icon}
+              </div>
               <h2 className="text-base font-semibold text-gray-900 mb-1">
                 {p.title}
               </h2>
