@@ -13,22 +13,18 @@ export default function Inquiry() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    try {
-      const response = await fetch("https://formspree.io/f/maqvaylr", {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
+    const response = await fetch("https://formspree.io/f/maqvaylr", {
+      method: "POST",
+      body: formData,
+      headers: { Accept: "application/json" },
+    }).catch(() => null);
 
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        alert("제출 중 문제가 발생했습니다. 전화로 연락주세요.");
-      }
-    } catch {
+    setLoading(false);
+
+    if (response && response.ok) {
+      setSubmitted(true);
+    } else {
       alert("제출 중 문제가 발생했습니다. 전화로 연락주세요.");
-    } finally {
-      setLoading(false);
     }
   }
 
