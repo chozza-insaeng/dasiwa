@@ -21,19 +21,14 @@ export default function Home() {
     "시공 후 하자 상담 가능",
   ];
 
-  const portfolios = [
-    {
-      title: "욕실 타일 시공",
-      desc: "기존 타일 철거 후 포세린 타일 시공, 배수 구배 조정, 줄눈 마감까지",
-    },
-    {
-      title: "주방 타일 시공",
-      desc: "싱크대 벽면 타일 교체, 오염 방지 마감 처리",
-    },
-    {
-      title: "상가 바닥 타일",
-      desc: "영업 일정에 맞춘 단기 시공, 단차 보정 및 마감 처리",
-    },
+  // 메인 페이지에 보여줄 베스트 사진 6장
+  const featuredPhotos = [
+    "/tile-09.jpg",
+    "/tile-16.jpg",
+    "/tile-19.jpg",
+    "/tile-25.jpg",
+    "/tile-33.jpg",
+    "/tile-47.jpg",
   ];
 
   return (
@@ -134,33 +129,36 @@ export default function Home() {
             </div>
           </section>
 
-          {/* 시공 사례 */}
+          {/* 시공 사례 — 베스트 6장 + 갤러리 버튼 */}
           <section className="mb-14">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-3">
               시공 사례
             </h2>
             <p className="text-center text-gray-500 mb-8">
-              실제 시공한 현장 사례입니다
+              실제 시공한 현장 47곳의 사진을 확인하세요
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {portfolios.map((p) => (
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
+              {featuredPhotos.map((src, i) => (
                 <div
-                  key={p.title}
-                  className="bg-white rounded-2xl border border-teal-100 shadow-sm overflow-hidden"
+                  key={src}
+                  className="aspect-square bg-white rounded-2xl border border-teal-100 shadow-sm overflow-hidden"
                 >
-                  <div className="aspect-square bg-gradient-to-br from-teal-50 to-slate-100 flex items-center justify-center">
-                    <span className="text-gray-400 text-sm">사진 준비 중</span>
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-base font-semibold text-gray-900 mb-2">
-                      {p.title}
-                    </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {p.desc}
-                    </p>
-                  </div>
+                  <img
+                    src={src}
+                    alt={`타일 시공 사례 ${i + 1}`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
               ))}
+            </div>
+            <div className="text-center">
+              <button
+                onClick={() => (window.location.href = "/gallery")}
+                className="px-6 py-3 bg-white text-teal-700 border-2 border-teal-600 rounded-xl font-semibold hover:bg-teal-50 transition-colors"
+              >
+                시공 사례 보기 →
+              </button>
             </div>
           </section>
 
