@@ -3,13 +3,14 @@
 export default function Home() {
   const services = [
     { icon: "🚿", title: "화장실 리모델링", desc: "철거부터 마감까지 전체 시공" },
-    { icon: "🧱", title: "타일 시공", desc: "욕실·주방·베란다·현관 등 모든 공간" },
-    { icon: "🔧", title: "타일 하자 보수", desc: "깨짐·들뜸·줄눈 문제 정확하게 보수" },
-    { icon: "💧", title: "수전 교체", desc: "세면대·샤워기·주방 수전 전문" },
-    { icon: "🏠", title: "천정돔 시공", desc: "방수 천정 단단하게 마감" },
+    { icon: "🧱", title: "타일 시공", desc: "욕실·주방·베란다·현관 등" },
+    { icon: "🔧", title: "타일 하자 보수", desc: "깨짐·들뜸·줄눈 보수" },
+    { icon: "💧", title: "수전 교체", desc: "세면대·샤워기·주방 수전" },
+    { icon: "🏠", title: "천정돔 시공", desc: "방수 천정 단단한 마감" },
     { icon: "🍳", title: "주방 타일 시공", desc: "싱크대 벽면·바닥 타일" },
     { icon: "🏪", title: "상가 타일", desc: "영업 일정에 맞춘 시공" },
     { icon: "🌿", title: "베란다 · 현관 타일", desc: "공간에 맞는 자재와 마감" },
+    { icon: "🛁", title: "싱크대 전체 시공", desc: "협력 업체와 함께 진행" },
   ];
 
   const promises = [
@@ -83,7 +84,7 @@ export default function Home() {
             <p className="text-center text-gray-500 mb-8">
               타일과 관련된 거의 모든 작업이 가능합니다
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {services.map((s) => (
                 <div
                   key={s.title}
@@ -123,7 +124,7 @@ export default function Home() {
             </div>
           </section>
 
-          {/* 시공 사례 자리 (사진 추가 예정) */}
+          {/* 시공 사례 자리 */}
           <section className="mb-14">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-3">
               시공 사례
@@ -134,3 +135,51 @@ export default function Home() {
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {[1, 2, 3, 4, 5, 6].map((n) => (
                 <div
+                  key={n}
+                  className="aspect-square bg-gradient-to-br from-teal-50 to-slate-100 rounded-2xl border border-teal-100 flex items-center justify-center"
+                >
+                  <span className="text-gray-400 text-sm">사진 준비 중</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* 하단 행동 유도 */}
+          <div className="bg-teal-600 rounded-2xl p-8 text-center text-white mb-8">
+            <h2 className="text-2xl font-bold mb-3">
+              지금 바로 견적 받으세요
+            </h2>
+            <p className="text-teal-100 mb-6">
+              현장 사진과 간단한 정보만 보내주시면 빠르게 연락드립니다
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <button
+                onClick={() => (window.location.href = "/inquiry")}
+                className="px-6 py-3 bg-white text-teal-700 rounded-xl font-semibold hover:bg-teal-50 transition-colors"
+              >
+                📷 사진 보내고 견적 받기
+              </button>
+              <button
+                onClick={() => (window.location.href = "tel:01034464858")}
+                className="px-6 py-3 bg-teal-800 text-white rounded-xl font-semibold hover:bg-teal-900 transition-colors"
+              >
+                📞 010-3446-4858 바로 전화
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </main>
+
+      {/* 푸터 */}
+      <footer className="px-6 py-8 border-t border-teal-100/60 bg-white">
+        <div className="max-w-4xl mx-auto text-center text-sm text-gray-500 space-y-2">
+          <p className="font-semibold text-gray-700">TILE MASTER · 타일 마스터</p>
+          <p>타일 시공 문의: 010-3446-4858</p>
+          <p>시공 가능 지역: 충청도 전지역 · 경기 남부권(평택,용인,안산,수원등)</p>
+          <p className="text-xs text-gray-400 pt-2">© 2026 Tile Master. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
