@@ -2,19 +2,19 @@
 
 export default function Home() {
   const services = [
-    { icon: "🚿", title: "화장실 리모델링", desc: "철거부터 마감까지 전체 시공" },
+    { icon: "🚿", title: "화장실 리모델링", desc: "철거부터 마감까지 전체 리모델링" },
     { icon: "🧱", title: "욕실 타일 시공", desc: "벽·바닥 타일 시공과 줄눈 마감" },
-    { icon: "🍳", title: "주방 타일 시공", desc: "싱크대 벽면·바닥 타일" },
+    { icon: "🍳", title: "주방 타일 시공", desc: "싱크대 벽면 타일 시공" },
     { icon: "🌿", title: "베란다 · 현관 타일", desc: "공간에 맞는 자재와 마감" },
     { icon: "🏪", title: "상가 · 매장 타일", desc: "영업 일정에 맞춘 빠른 시공" },
-    { icon: "🔧", title: "타일 하자 보수", desc: "깨짐·들뜸·줄눈 문제 보수" },
-    { icon: "💧", title: "수전 교체", desc: "세면대·샤워기·주방 수전" },
-    { icon: "🏠", title: "천정돔 시공", desc: "방수 천정 단단한 마감" },
-    { icon: "🛁", title: "싱크대 전체 시공", desc: "협력 업체와 함께 진행" },
+    { icon: "🔧", title: "타일 하자 보수", desc: "깨짐·들뜸등 타일 하자 보수" },
+    { icon: "💧", title: "수전 교체", desc: "세면대·샤워기·주방 수전 교체" },
+    { icon: "🏠", title: "천정돔 시공", desc: "SMC 천정돔 시공" },
+    { icon: "🛁", title: "주방 전체 리모델링", desc: "씽크대 협력 업체와 함께 진행" },
   ];
 
   const promises = [
-    "현장 사진 확인 후 예상 견적 안내",
+    "현장 사진 확인 및 상담 후 예상 견적 안내",
     "작업 범위와 추가 비용 사전 설명",
     "철거 필요 여부 정확히 확인",
     "자재 선택과 시공 방식 상담",
@@ -23,12 +23,12 @@ export default function Home() {
 
   // 메인 페이지에 보여줄 베스트 사진 6장
   const featuredPhotos = [
-    "/tile-09.jpg",
-    "/tile-16.jpg",
-    "/tile-19.jpg",
-    "/tile-25.jpg",
-    "/tile-33.jpg",
-    "/tile-47.jpg",
+    "/tile-04.jpg",
+    "/tile-02.jpg",
+    "/tile-06.jpg",
+    "/tile-14.jpg",
+    "/tile-27.jpg",
+    "/tile-35.jpg",
   ];
 
   return (
