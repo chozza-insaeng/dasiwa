@@ -1,3 +1,5 @@
+"use client";
+
 export default function Home() {
   const promises = [
     { icon: "🔧", title: "약속 챙기기", desc: "시공·A/S 약속이 흐트러지지 않도록." },
@@ -35,8 +37,24 @@ export default function Home() {
               </div>
             ))}
           </div>
+
+          <div className="flex flex-col sm:flex-row gap-3 mb-8">
+            <button
+              onClick={() => (window.location.href = "/inquiry")}
+              className="flex-1 px-6 py-4 bg-teal-600 text-white rounded-2xl font-semibold text-lg hover:bg-teal-700 transition-colors shadow-md"
+            >
+              📝 의뢰 문의 보내기
+            </button>
+            <button
+              onClick={() => (window.location.href = "tel:01034464858")}
+              className="flex-1 px-6 py-4 bg-white text-teal-700 border-2 border-teal-600 rounded-2xl font-semibold text-lg hover:bg-teal-50 transition-colors shadow-md"
+            >
+              📞 바로 전화 010-3446-4858
+            </button>
+          </div>
+
           <p className="text-xs text-gray-400">
-            v0.1 · 첫 페이지가 켜졌습니다. 여기서부터 시작해요.
+            v0.2 · 1인 타일 시공자를 위한 의뢰·고객 관리 도구
           </p>
         </div>
       </main>
@@ -45,7 +63,7 @@ export default function Home() {
           <p>© 2026 타일 마스터</p>
           <p>Made with <span className="text-teal-600">❤️</span> by chozza-insaeng</p>
           <p>Day 1 launched on 2026-05-11</p>
-          <p className="text-gray-400">v0.1</p>
+          <p className="text-gray-400">v0.2</p>
         </div>
       </footer>
     </div>
