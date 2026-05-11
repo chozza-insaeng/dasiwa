@@ -59,8 +59,9 @@ export default function Home() {
               📍 시공 가능 지역
             </p>
             <div className="text-sm text-gray-700 space-y-1">
-              <p>충청도 전지역 · 대전 · 세종 · 천안 · 청주</p>
-              <p>경기 남부 · 평택 · 용인 · 안산 · 수원</p>
+              <p>충청도 전지역(충주 · 대전 · 세종 · 천안 · 청주등)</p>
+              <p>경기 남부 지역(평택 · 용인 · 안산 · 수원등)</p>
+              <p>그 외 지역 상담 가능</p>
             </div>
           </div>
 
