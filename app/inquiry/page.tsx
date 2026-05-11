@@ -25,7 +25,7 @@ export default function Inquiry() {
       } else {
         alert("제출 중 문제가 발생했습니다. 전화로 연락주세요.");
       }
-    } catch (error) {
+    } catch {
       alert("제출 중 문제가 발생했습니다. 전화로 연락주세요.");
     } finally {
       setLoading(false);
