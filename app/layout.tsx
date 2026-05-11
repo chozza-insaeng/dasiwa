@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "다시와 · 1인 뷰티샵을 위한 예약 관리",
-  description: "노쇼 줄이기, 빈자리 채우기, 재방문 늘리기. 1인 뷰티샵 사장님을 위한 운영 도구.",
+  title: "타일 마스터 | 타일 시공 · 욕실 리모델링 · 하자 보수 전문",
+  description: "충청도·경기 남부 타일 시공 전문. 화장실 리모델링, 타일 하자 보수, 수전 교체, 천정돔 시공. 끝까지 책임지는 타일 시공.",
 };
 
 export default function RootLayout({
