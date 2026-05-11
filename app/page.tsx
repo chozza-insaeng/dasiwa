@@ -3,13 +3,13 @@
 export default function Home() {
   const services = [
     { icon: "🚿", title: "화장실 리모델링", desc: "철거부터 마감까지 전체 시공" },
-    { icon: "🧱", title: "타일 시공", desc: "욕실·주방·베란다·현관 등" },
-    { icon: "🔧", title: "타일 하자 보수", desc: "깨짐·들뜸·줄눈 보수" },
+    { icon: "🧱", title: "욕실 타일 시공", desc: "벽·바닥 타일 시공과 줄눈 마감" },
+    { icon: "🍳", title: "주방 타일 시공", desc: "싱크대 벽면·바닥 타일" },
+    { icon: "🌿", title: "베란다 · 현관 타일", desc: "공간에 맞는 자재와 마감" },
+    { icon: "🏪", title: "상가 · 매장 타일", desc: "영업 일정에 맞춘 빠른 시공" },
+    { icon: "🔧", title: "타일 하자 보수", desc: "깨짐·들뜸·줄눈 문제 보수" },
     { icon: "💧", title: "수전 교체", desc: "세면대·샤워기·주방 수전" },
     { icon: "🏠", title: "천정돔 시공", desc: "방수 천정 단단한 마감" },
-    { icon: "🍳", title: "주방 타일 시공", desc: "싱크대 벽면·바닥 타일" },
-    { icon: "🏪", title: "상가 타일", desc: "영업 일정에 맞춘 시공" },
-    { icon: "🌿", title: "베란다 · 현관 타일", desc: "공간에 맞는 자재와 마감" },
     { icon: "🛁", title: "싱크대 전체 시공", desc: "협력 업체와 함께 진행" },
   ];
 
@@ -21,9 +21,19 @@ export default function Home() {
     "시공 후 하자 상담 가능",
   ];
 
-  const regions = [
-    "충청도 전지역 (대전 · 세종 · 천안 · 청주 등)",
-    "경기 남부 (안산 · 용인 · 수원 · 평택 등)",
+  const portfolios = [
+    {
+      title: "욕실 타일 시공",
+      desc: "기존 타일 철거 후 포세린 타일 시공, 배수 구배 조정, 줄눈 마감까지",
+    },
+    {
+      title: "주방 타일 시공",
+      desc: "싱크대 벽면 타일 교체, 오염 방지 마감 처리",
+    },
+    {
+      title: "상가 바닥 타일",
+      desc: "영업 일정에 맞춘 단기 시공, 단차 보정 및 마감 처리",
+    },
   ];
 
   return (
@@ -54,9 +64,8 @@ export default function Home() {
               📍 시공 가능 지역
             </p>
             <div className="text-sm text-gray-700 space-y-1">
-              {regions.map((r) => (
-                <p key={r}>{r}</p>
-              ))}
+              <p>충청도 전지역 · 대전 · 세종 · 천안 · 청주</p>
+              <p>경기 남부 · 평택 · 용인 · 안산 · 수원</p>
             </div>
           </div>
 
@@ -81,8 +90,9 @@ export default function Home() {
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-3">
               시공 분야
             </h2>
-            <p className="text-center text-gray-500 mb-8">
-              타일과 관련된 거의 모든 작업이 가능합니다
+            <p className="text-center text-gray-500 mb-8 leading-relaxed">
+              욕실 · 주방 · 상가 · 베란다 · 현관까지<br />
+              현장 상황에 맞춰 철거, 시공, 보수 작업을 진행합니다
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {services.map((s) => (
@@ -104,10 +114,10 @@ export default function Home() {
             </div>
           </section>
 
-          {/* 신뢰 약속 */}
+          {/* 견적 전 안내 */}
           <section className="mb-14">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-3">
-              작업 전 약속드립니다
+              견적 전 꼭 확인하고 안내드립니다
             </h2>
             <p className="text-center text-gray-500 mb-8">
               궁금하신 점은 언제든 물어봐주세요
@@ -124,21 +134,31 @@ export default function Home() {
             </div>
           </section>
 
-          {/* 시공 사례 자리 */}
+          {/* 시공 사례 */}
           <section className="mb-14">
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-3">
               시공 사례
             </h2>
             <p className="text-center text-gray-500 mb-8">
-              실제 시공한 현장들입니다
+              실제 시공한 현장 사례입니다
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {[1, 2, 3, 4, 5, 6].map((n) => (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {portfolios.map((p) => (
                 <div
-                  key={n}
-                  className="aspect-square bg-gradient-to-br from-teal-50 to-slate-100 rounded-2xl border border-teal-100 flex items-center justify-center"
+                  key={p.title}
+                  className="bg-white rounded-2xl border border-teal-100 shadow-sm overflow-hidden"
                 >
-                  <span className="text-gray-400 text-sm">사진 준비 중</span>
+                  <div className="aspect-square bg-gradient-to-br from-teal-50 to-slate-100 flex items-center justify-center">
+                    <span className="text-gray-400 text-sm">사진 준비 중</span>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-base font-semibold text-gray-900 mb-2">
+                      {p.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {p.desc}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -176,7 +196,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto text-center text-sm text-gray-500 space-y-2">
           <p className="font-semibold text-gray-700">TILE MASTER · 타일 마스터</p>
           <p>타일 시공 문의: 010-3446-4858</p>
-          <p>시공 가능 지역: 충청도 전지역 · 경기 남부권(평택,용인,안산,수원등)</p>
+          <p>시공 가능 지역: 충청도 전지역 · 경기 남부</p>
           <p className="text-xs text-gray-400 pt-2">© 2026 Tile Master. All rights reserved.</p>
         </div>
       </footer>
