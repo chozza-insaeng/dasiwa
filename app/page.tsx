@@ -60,7 +60,7 @@ export default function Home() {
             className="w-full h-full object-cover scale-110"
           />
           {/* 화이트 오버레이 — 사진 밝게, 텍스트 잘 보이게 */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/85 via-white/75 to-white/95" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/30 to-white/70" />
         </div>
 
         {/* 상단 네비 */}
