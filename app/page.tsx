@@ -45,8 +45,8 @@ export default function Home() {
   return (
     <div className="bg-[#0a0a0a] text-white overflow-x-hidden">
       
-      {/* 풀스크린 히어로 - 사이즈 조정 */}
-      <section className="relative min-h-[85vh] sm:min-h-screen w-full flex items-center justify-center overflow-hidden">
+      {/* 풀스크린 히어로 - 버튼 포함 */}
+      <section className="relative min-h-[100vh] w-full flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 z-0"
           style={{
@@ -58,7 +58,7 @@ export default function Home() {
             alt="타일 시공"
             className="w-full h-full object-cover scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/55 to-black/95" />
         </div>
 
         {/* 상단 네비 */}
@@ -67,34 +67,56 @@ export default function Home() {
           <span className="text-white/70 font-light hidden sm:block">EST. 2024</span>
         </div>
 
-        {/* 히어로 콘텐츠 - 사이즈 줄임 */}
-        <div className="relative z-10 text-center px-6 max-w-4xl py-16">
-          <p className="text-[10px] sm:text-xs tracking-[0.4em] text-teal-300 font-light mb-5 uppercase">
+        {/* 히어로 콘텐츠 + 버튼 */}
+        <div className="relative z-10 text-center px-6 max-w-2xl py-12 sm:py-16">
+          <p className="text-[10px] sm:text-xs tracking-[0.4em] text-teal-300 font-light mb-4 uppercase">
             Premium Tile Craft
           </p>
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-light text-white mb-5 leading-[1.15] tracking-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-light text-white mb-4 leading-[1.15] tracking-tight">
             끝까지 책임지는
             <br />
             <span className="italic font-extralight">타일 시공</span>
           </h1>
-          <div className="w-10 h-px bg-teal-400 mx-auto mb-5" />
-          <p className="text-sm sm:text-base text-white/80 font-light tracking-wide leading-relaxed max-w-md mx-auto">
+          <div className="w-10 h-px bg-teal-400 mx-auto mb-4" />
+          <p className="text-sm sm:text-base text-white/85 font-light tracking-wide leading-relaxed mb-8 max-w-md mx-auto">
             철거부터 마감까지, 시공 후 하자까지.
             <br />
             현장 사진 한 장으로 시작합니다.
+          </p>
+
+          {/* 히어로 안 버튼 — 핵심 추가 부분 */}
+          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <button
+              onClick={() => (window.location.href = "/inquiry")}
+              className="flex-1 group px-6 py-4 bg-white text-[#0a0a0a] font-medium text-xs sm:text-sm tracking-[0.2em] uppercase hover:bg-teal-400 transition-all duration-500 shadow-2xl"
+            >
+              📷 사진 견적 받기
+              <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
+            </button>
+            <button
+              onClick={() => (window.location.href = "tel:01034464858")}
+              className="flex-1 group px-6 py-4 bg-teal-600/90 backdrop-blur text-white border border-teal-400/50 font-medium text-xs sm:text-sm tracking-[0.2em] uppercase hover:bg-teal-500 transition-all duration-500 shadow-2xl"
+            >
+              📞 010-3446-4858
+            </button>
+          </div>
+
+          {/* 지역 정보 */}
+          <p className="text-[10px] sm:text-xs text-white/60 font-light mt-6 tracking-wider">
+            충청도 전지역 · 경기 남부 출장 시공
           </p>
         </div>
 
         {/* 스크롤 인디케이터 */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
-          <div className="flex flex-col items-center gap-2 text-white/60 text-[10px] tracking-[0.3em] uppercase">
+          <div className="flex flex-col items-center gap-2 text-white/50 text-[10px] tracking-[0.3em] uppercase">
             <span>Scroll</span>
-            <div className="w-px h-8 bg-gradient-to-b from-white/60 to-transparent" />
+            <div className="w-px h-6 bg-gradient-to-b from-white/50 to-transparent" />
           </div>
         </div>
       </section>
 
-      {/* 시공 가능 지역 - 사이즈 줄임 */}
+      {/* 시공 가능 지역 */}
       <section className="relative py-12 sm:py-16 px-5 sm:px-6 bg-gradient-to-b from-[#0a0a0a] to-[#111]">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-[10px] sm:text-xs tracking-[0.4em] text-teal-400 mb-4 uppercase">Service Area</p>
@@ -120,29 +142,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 메인 행동 버튼 - 사이즈 줄임 */}
-      <section className="relative py-10 px-5 sm:px-6 bg-[#111]">
-        <div className="max-w-2xl mx-auto">
-          <div className="flex flex-col sm:flex-row gap-3">
-            <button
-              onClick={() => (window.location.href = "/inquiry")}
-              className="flex-1 group px-6 py-4 bg-white text-[#0a0a0a] font-light text-xs sm:text-sm tracking-[0.2em] uppercase hover:bg-teal-400 transition-all duration-500"
-            >
-              사진 보내고 견적 받기
-              <span className="inline-block ml-2 group-hover:translate-x-2 transition-transform">→</span>
-            </button>
-            <button
-              onClick={() => (window.location.href = "tel:01034464858")}
-              className="flex-1 group px-6 py-4 bg-transparent text-white border border-white/30 font-light text-xs sm:text-sm tracking-[0.2em] uppercase hover:border-teal-400 hover:text-teal-400 transition-all duration-500"
-            >
-              010-3446-4858
-              <span className="inline-block ml-2 group-hover:translate-x-2 transition-transform">→</span>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* 시공 분야 - 사이즈 줄임 */}
+      {/* 시공 분야 */}
       <section className="relative py-16 sm:py-20 px-5 sm:px-6 bg-[#0a0a0a]">
         <div className="max-w-5xl mx-auto">
           <div className="mb-10 sm:mb-14 text-center">
@@ -179,7 +179,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 견적 전 안내 - 사이즈 줄임 */}
+      {/* 견적 전 안내 */}
       <section className="relative py-16 sm:py-20 px-5 sm:px-6 bg-[#111]">
         <div className="max-w-3xl mx-auto">
           <div className="mb-10 text-center">
@@ -209,7 +209,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 시공 사례 - 사이즈 줄임 */}
+      {/* 시공 사례 */}
       <section className="relative py-16 sm:py-20 px-5 sm:px-6 bg-[#0a0a0a]">
         <div className="max-w-5xl mx-auto">
           <div className="mb-10 text-center">
@@ -258,7 +258,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 하단 콜투액션 - 사이즈 줄임 */}
+      {/* 하단 콜투액션 */}
       <section className="relative py-20 sm:py-24 px-5 sm:px-6 bg-gradient-to-b from-[#0a0a0a] to-black overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/20 rounded-full blur-3xl" />
@@ -295,7 +295,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 푸터 - 사이즈 줄임 */}
+      {/* 푸터 */}
       <footer className="bg-black border-t border-white/10 px-5 sm:px-6 py-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-4">
