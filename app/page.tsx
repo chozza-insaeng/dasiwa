@@ -45,13 +45,12 @@ export default function Home() {
   return (
     <div className="bg-[#0a0a0a] text-white overflow-x-hidden">
       
-      {/* 풀스크린 히어로 */}
-      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-        {/* 배경 이미지 */}
+      {/* 풀스크린 히어로 - 사이즈 조정 */}
+      <section className="relative min-h-[85vh] sm:min-h-screen w-full flex items-center justify-center overflow-hidden">
         <div 
           className="absolute inset-0 z-0"
           style={{
-            transform: mounted ? `translateY(${scrollY * 0.4}px)` : "none",
+            transform: mounted ? `translateY(${scrollY * 0.3}px)` : "none",
           }}
         >
           <img
@@ -60,27 +59,26 @@ export default function Home() {
             className="w-full h-full object-cover scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/90" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
         </div>
 
-        {/* 상단 미니 네비 */}
-        <div className="absolute top-0 left-0 right-0 z-20 px-6 sm:px-12 py-6 flex justify-between items-center text-xs sm:text-sm tracking-[0.2em] uppercase">
+        {/* 상단 네비 */}
+        <div className="absolute top-0 left-0 right-0 z-20 px-5 sm:px-10 py-4 flex justify-between items-center text-[10px] sm:text-xs tracking-[0.2em] uppercase">
           <span className="text-white/90 font-light">Tile Master</span>
           <span className="text-white/70 font-light hidden sm:block">EST. 2024</span>
         </div>
 
-        {/* 히어로 콘텐츠 */}
-        <div className="relative z-10 text-center px-6 max-w-5xl">
-          <p className="text-xs sm:text-sm tracking-[0.5em] text-teal-300 font-light mb-8 uppercase">
+        {/* 히어로 콘텐츠 - 사이즈 줄임 */}
+        <div className="relative z-10 text-center px-6 max-w-4xl py-16">
+          <p className="text-[10px] sm:text-xs tracking-[0.4em] text-teal-300 font-light mb-5 uppercase">
             Premium Tile Craft
           </p>
-          <h1 className="text-5xl sm:text-7xl md:text-8xl font-serif font-light text-white mb-8 leading-[1.05] tracking-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-serif font-light text-white mb-5 leading-[1.15] tracking-tight">
             끝까지 책임지는
             <br />
             <span className="italic font-extralight">타일 시공</span>
           </h1>
-          <div className="w-16 h-px bg-teal-400 mx-auto mb-8" />
-          <p className="text-base sm:text-lg text-white/80 font-light tracking-wide leading-relaxed max-w-xl mx-auto">
+          <div className="w-10 h-px bg-teal-400 mx-auto mb-5" />
+          <p className="text-sm sm:text-base text-white/80 font-light tracking-wide leading-relaxed max-w-md mx-auto">
             철거부터 마감까지, 시공 후 하자까지.
             <br />
             현장 사진 한 장으로 시작합니다.
@@ -88,32 +86,32 @@ export default function Home() {
         </div>
 
         {/* 스크롤 인디케이터 */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
-          <div className="flex flex-col items-center gap-2 text-white/60 text-xs tracking-[0.3em] uppercase">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
+          <div className="flex flex-col items-center gap-2 text-white/60 text-[10px] tracking-[0.3em] uppercase">
             <span>Scroll</span>
-            <div className="w-px h-12 bg-gradient-to-b from-white/60 to-transparent" />
+            <div className="w-px h-8 bg-gradient-to-b from-white/60 to-transparent" />
           </div>
         </div>
       </section>
 
-      {/* 시공 가능 지역 */}
-      <section className="relative py-20 px-6 bg-gradient-to-b from-[#0a0a0a] to-[#111]">
-        <div className="max-w-5xl mx-auto text-center">
-          <p className="text-xs tracking-[0.4em] text-teal-400 mb-6 uppercase">Service Area</p>
-          <h2 className="text-2xl sm:text-3xl font-serif font-light mb-10 tracking-wide">
+      {/* 시공 가능 지역 - 사이즈 줄임 */}
+      <section className="relative py-12 sm:py-16 px-5 sm:px-6 bg-gradient-to-b from-[#0a0a0a] to-[#111]">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-[10px] sm:text-xs tracking-[0.4em] text-teal-400 mb-4 uppercase">Service Area</p>
+          <h2 className="text-xl sm:text-2xl font-serif font-light mb-7 tracking-wide">
             시공 가능 지역
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/10">
-            <div className="bg-[#0f0f0f] p-8 sm:p-10">
-              <p className="text-teal-300 text-xs tracking-[0.3em] uppercase mb-3">Chungcheong</p>
-              <p className="text-white text-base sm:text-lg font-light leading-relaxed">
+            <div className="bg-[#0f0f0f] p-5 sm:p-7">
+              <p className="text-teal-300 text-[10px] tracking-[0.3em] uppercase mb-2">Chungcheong</p>
+              <p className="text-white text-sm sm:text-base font-light leading-relaxed">
                 충청도 전지역<br />
                 대전 · 세종 · 천안 · 청주
               </p>
             </div>
-            <div className="bg-[#0f0f0f] p-8 sm:p-10">
-              <p className="text-teal-300 text-xs tracking-[0.3em] uppercase mb-3">Gyeonggi South</p>
-              <p className="text-white text-base sm:text-lg font-light leading-relaxed">
+            <div className="bg-[#0f0f0f] p-5 sm:p-7">
+              <p className="text-teal-300 text-[10px] tracking-[0.3em] uppercase mb-2">Gyeonggi South</p>
+              <p className="text-white text-sm sm:text-base font-light leading-relaxed">
                 경기 남부<br />
                 평택 · 용인 · 안산 · 수원
               </p>
@@ -122,40 +120,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 메인 행동 버튼 */}
-      <section className="relative py-16 px-6 bg-[#111]">
-        <div className="max-w-3xl mx-auto">
-          <div className="flex flex-col sm:flex-row gap-4">
+      {/* 메인 행동 버튼 - 사이즈 줄임 */}
+      <section className="relative py-10 px-5 sm:px-6 bg-[#111]">
+        <div className="max-w-2xl mx-auto">
+          <div className="flex flex-col sm:flex-row gap-3">
             <button
               onClick={() => (window.location.href = "/inquiry")}
-              className="flex-1 group px-8 py-6 bg-white text-[#0a0a0a] rounded-none font-light text-sm sm:text-base tracking-[0.2em] uppercase hover:bg-teal-400 transition-all duration-500"
+              className="flex-1 group px-6 py-4 bg-white text-[#0a0a0a] font-light text-xs sm:text-sm tracking-[0.2em] uppercase hover:bg-teal-400 transition-all duration-500"
             >
               사진 보내고 견적 받기
-              <span className="inline-block ml-3 group-hover:translate-x-2 transition-transform">→</span>
+              <span className="inline-block ml-2 group-hover:translate-x-2 transition-transform">→</span>
             </button>
             <button
               onClick={() => (window.location.href = "tel:01034464858")}
-              className="flex-1 group px-8 py-6 bg-transparent text-white border border-white/30 rounded-none font-light text-sm sm:text-base tracking-[0.2em] uppercase hover:border-teal-400 hover:text-teal-400 transition-all duration-500"
+              className="flex-1 group px-6 py-4 bg-transparent text-white border border-white/30 font-light text-xs sm:text-sm tracking-[0.2em] uppercase hover:border-teal-400 hover:text-teal-400 transition-all duration-500"
             >
-              010-3446-4858 전화
-              <span className="inline-block ml-3 group-hover:translate-x-2 transition-transform">→</span>
+              010-3446-4858
+              <span className="inline-block ml-2 group-hover:translate-x-2 transition-transform">→</span>
             </button>
           </div>
         </div>
       </section>
 
-      {/* 시공 분야 */}
-      <section className="relative py-24 sm:py-32 px-6 bg-[#0a0a0a]">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16 sm:mb-20 text-center">
-            <p className="text-xs tracking-[0.4em] text-teal-400 mb-6 uppercase">Services</p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-light text-white mb-6 tracking-tight">
+      {/* 시공 분야 - 사이즈 줄임 */}
+      <section className="relative py-16 sm:py-20 px-5 sm:px-6 bg-[#0a0a0a]">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-10 sm:mb-14 text-center">
+            <p className="text-[10px] sm:text-xs tracking-[0.4em] text-teal-400 mb-4 uppercase">Services</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-light text-white mb-4 tracking-tight">
               시공 분야
             </h2>
-            <div className="w-16 h-px bg-teal-400 mx-auto mb-6" />
-            <p className="text-white/60 font-light leading-relaxed max-w-xl mx-auto">
+            <div className="w-10 h-px bg-teal-400 mx-auto mb-4" />
+            <p className="text-white/60 text-sm font-light leading-relaxed max-w-md mx-auto">
               욕실 · 주방 · 상가 · 베란다 · 현관까지<br />
-              현장 상황에 맞춰 철거, 시공, 보수 작업을 진행합니다
+              현장에 맞춰 시공·보수 작업을 진행합니다
             </p>
           </div>
 
@@ -163,46 +161,46 @@ export default function Home() {
             {services.map((s) => (
               <div
                 key={s.title}
-                className="group bg-[#0a0a0a] p-8 sm:p-10 hover:bg-[#111] transition-all duration-500 cursor-default"
+                className="group bg-[#0a0a0a] p-5 sm:p-7 hover:bg-[#111] transition-all duration-500"
               >
-                <p className="text-xs tracking-[0.3em] text-teal-400/60 mb-6 font-light">
+                <p className="text-[10px] tracking-[0.3em] text-teal-400/60 mb-3 font-light">
                   {s.num}
                 </p>
-                <h3 className="text-xl sm:text-2xl font-serif font-light text-white mb-3 group-hover:text-teal-300 transition-colors">
+                <h3 className="text-base sm:text-lg font-serif font-light text-white mb-2 group-hover:text-teal-300 transition-colors">
                   {s.title}
                 </h3>
-                <p className="text-sm text-white/50 font-light leading-relaxed">
+                <p className="text-xs sm:text-sm text-white/50 font-light leading-relaxed">
                   {s.desc}
                 </p>
-                <div className="w-8 h-px bg-teal-400/30 mt-8 group-hover:w-16 group-hover:bg-teal-400 transition-all duration-500" />
+                <div className="w-6 h-px bg-teal-400/30 mt-5 group-hover:w-12 group-hover:bg-teal-400 transition-all duration-500" />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 견적 전 안내 */}
-      <section className="relative py-24 sm:py-32 px-6 bg-[#111]">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-16 text-center">
-            <p className="text-xs tracking-[0.4em] text-teal-400 mb-6 uppercase">Promise</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-light text-white mb-6 tracking-tight leading-tight">
+      {/* 견적 전 안내 - 사이즈 줄임 */}
+      <section className="relative py-16 sm:py-20 px-5 sm:px-6 bg-[#111]">
+        <div className="max-w-3xl mx-auto">
+          <div className="mb-10 text-center">
+            <p className="text-[10px] sm:text-xs tracking-[0.4em] text-teal-400 mb-4 uppercase">Promise</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-light text-white mb-4 tracking-tight leading-tight">
               견적 전<br />
               꼭 확인하고 안내드립니다
             </h2>
-            <div className="w-16 h-px bg-teal-400 mx-auto" />
+            <div className="w-10 h-px bg-teal-400 mx-auto" />
           </div>
 
           <div className="space-y-px bg-white/5">
             {promises.map((p) => (
               <div
                 key={p.num}
-                className="group bg-[#0f0f0f] p-8 sm:p-10 flex items-start gap-6 sm:gap-10 hover:bg-[#151515] transition-colors"
+                className="group bg-[#0f0f0f] p-5 sm:p-7 flex items-start gap-4 sm:gap-6 hover:bg-[#151515] transition-colors"
               >
-                <span className="text-3xl sm:text-4xl font-serif font-extralight text-teal-400/70 flex-shrink-0">
+                <span className="text-xl sm:text-2xl font-serif font-extralight text-teal-400/70 flex-shrink-0">
                   {p.num}
                 </span>
-                <p className="text-white/90 font-light text-base sm:text-lg leading-relaxed pt-1">
+                <p className="text-white/90 font-light text-sm sm:text-base leading-relaxed pt-0.5">
                   {p.text}
                 </p>
               </div>
@@ -211,21 +209,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 시공 사례 갤러리 */}
-      <section className="relative py-24 sm:py-32 px-6 bg-[#0a0a0a]">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16 text-center">
-            <p className="text-xs tracking-[0.4em] text-teal-400 mb-6 uppercase">Portfolio</p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-light text-white mb-6 tracking-tight">
+      {/* 시공 사례 - 사이즈 줄임 */}
+      <section className="relative py-16 sm:py-20 px-5 sm:px-6 bg-[#0a0a0a]">
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-10 text-center">
+            <p className="text-[10px] sm:text-xs tracking-[0.4em] text-teal-400 mb-4 uppercase">Portfolio</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-light text-white mb-4 tracking-tight">
               시공 사례
             </h2>
-            <div className="w-16 h-px bg-teal-400 mx-auto mb-6" />
-            <p className="text-white/60 font-light leading-relaxed">
+            <div className="w-10 h-px bg-teal-400 mx-auto mb-4" />
+            <p className="text-white/60 text-sm font-light leading-relaxed">
               실제 시공한 현장 47곳의 사진을 확인하세요
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mb-8">
             {featuredPhotos.map((src, i) => (
               <div
                 key={src}
@@ -235,12 +233,12 @@ export default function Home() {
                 <img
                   src={src}
                   alt={`타일 시공 사례 ${i + 1}`}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 grayscale-[20%] group-hover:grayscale-0"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 grayscale-[15%] group-hover:grayscale-0"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-500" />
-                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
-                  <p className="text-xs text-white/60 tracking-[0.3em] uppercase mb-1 font-light">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-50 group-hover:opacity-20 transition-opacity duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                  <p className="text-[10px] text-white/70 tracking-[0.3em] uppercase font-light">
                     Project {String(i + 1).padStart(2, "0")}
                   </p>
                 </div>
@@ -251,44 +249,44 @@ export default function Home() {
           <div className="text-center">
             <button
               onClick={() => (window.location.href = "/gallery")}
-              className="group px-10 py-4 border border-white/30 text-white text-xs tracking-[0.3em] uppercase font-light hover:border-teal-400 hover:text-teal-400 transition-all"
+              className="group px-8 py-3 border border-white/30 text-white text-[10px] sm:text-xs tracking-[0.3em] uppercase font-light hover:border-teal-400 hover:text-teal-400 transition-all"
             >
               전체 시공 사례 보기
-              <span className="inline-block ml-3 group-hover:translate-x-2 transition-transform">→</span>
+              <span className="inline-block ml-2 group-hover:translate-x-2 transition-transform">→</span>
             </button>
           </div>
         </div>
       </section>
 
-      {/* 하단 콜투액션 */}
-      <section className="relative py-32 px-6 bg-gradient-to-b from-[#0a0a0a] to-black overflow-hidden">
+      {/* 하단 콜투액션 - 사이즈 줄임 */}
+      <section className="relative py-20 sm:py-24 px-5 sm:px-6 bg-gradient-to-b from-[#0a0a0a] to-black overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-teal-400/10 rounded-full blur-3xl" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-400/10 rounded-full blur-3xl" />
         </div>
 
-        <div className="relative max-w-4xl mx-auto text-center">
-          <p className="text-xs tracking-[0.4em] text-teal-400 mb-6 uppercase">Get a Quote</p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-serif font-light text-white mb-8 tracking-tight leading-tight">
+        <div className="relative max-w-3xl mx-auto text-center">
+          <p className="text-[10px] sm:text-xs tracking-[0.4em] text-teal-400 mb-4 uppercase">Get a Quote</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-light text-white mb-5 tracking-tight leading-tight">
             지금 바로<br />
             견적 받으세요
           </h2>
-          <div className="w-16 h-px bg-teal-400 mx-auto mb-8" />
-          <p className="text-white/60 font-light mb-12 leading-relaxed max-w-xl mx-auto">
+          <div className="w-10 h-px bg-teal-400 mx-auto mb-5" />
+          <p className="text-white/60 text-sm font-light mb-8 leading-relaxed max-w-md mx-auto">
             현장 사진과 간단한 정보만 보내주시면<br />
             빠르게 연락드립니다
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-sm mx-auto">
             <button
               onClick={() => (window.location.href = "/inquiry")}
-              className="group px-8 py-5 bg-white text-[#0a0a0a] text-xs tracking-[0.3em] uppercase font-medium hover:bg-teal-400 transition-all"
+              className="group px-6 py-4 bg-white text-[#0a0a0a] text-[10px] sm:text-xs tracking-[0.3em] uppercase font-medium hover:bg-teal-400 transition-all"
             >
               사진 견적
               <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
             </button>
             <button
               onClick={() => (window.location.href = "tel:01034464858")}
-              className="group px-8 py-5 bg-transparent border border-white/30 text-white text-xs tracking-[0.3em] uppercase font-medium hover:border-teal-400 hover:text-teal-400 transition-all"
+              className="group px-6 py-4 bg-transparent border border-white/30 text-white text-[10px] sm:text-xs tracking-[0.3em] uppercase font-medium hover:border-teal-400 hover:text-teal-400 transition-all"
             >
               바로 전화
               <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
@@ -297,18 +295,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 푸터 */}
-      <footer className="bg-black border-t border-white/10 px-6 py-16">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center space-y-6">
-            <p className="text-xs tracking-[0.5em] text-teal-400 uppercase">Tile Master</p>
-            <div className="w-12 h-px bg-white/20 mx-auto" />
-            <p className="text-white font-serif text-2xl font-light">타일 마스터</p>
-            <div className="space-y-2 text-white/50 text-sm font-light pt-4">
+      {/* 푸터 - 사이즈 줄임 */}
+      <footer className="bg-black border-t border-white/10 px-5 sm:px-6 py-10">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center space-y-4">
+            <p className="text-[10px] tracking-[0.5em] text-teal-400 uppercase">Tile Master</p>
+            <div className="w-10 h-px bg-white/20 mx-auto" />
+            <p className="text-white font-serif text-lg font-light">타일 마스터</p>
+            <div className="space-y-1.5 text-white/50 text-xs font-light pt-3">
               <p>타일 시공 문의 · <span className="text-teal-400">010-3446-4858</span></p>
               <p>시공 가능 지역 · 충청도 전지역 · 경기 남부</p>
             </div>
-            <p className="text-xs text-white/30 font-light pt-8 tracking-wider">
+            <p className="text-[10px] text-white/30 font-light pt-6 tracking-wider">
               © 2026 TILE MASTER · ALL RIGHTS RESERVED
             </p>
           </div>
