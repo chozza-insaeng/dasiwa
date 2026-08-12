@@ -1,6 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
+
+const phoneDisplay = "010-3446-4858";
+const phoneHref = "tel:01034464858";
 
 export default function Inquiry() {
   const [submitted, setSubmitted] = useState(false);
@@ -10,188 +14,103 @@ export default function Inquiry() {
     e.preventDefault();
     setLoading(true);
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
     const response = await fetch("https://formspree.io/f/maqvaylr", {
       method: "POST",
-      body: formData,
+      body: new FormData(e.currentTarget),
       headers: { Accept: "application/json" },
     }).catch(() => null);
 
     setLoading(false);
 
-    if (response && response.ok) {
+    if (response?.ok) {
       setSubmitted(true);
     } else {
-      alert("제출 중 문제가 발생했습니다. 전화로 연락주세요.");
+      alert(`접수 중 문제가 생겼습니다. ${phoneDisplay}로 전화해주세요.`);
     }
   }
 
   if (submitted) {
     return (
-      <div className="flex flex-col min-h-screen bg-gradient-to-b from-slate-50 via-white to-teal-50">
-        <main className="flex-1 flex items-center justify-center px-6 py-16">
-          <div className="max-w-md w-full text-center">
-            <div className="text-6xl mb-6">✅</div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">
-              문의 접수 완료
-            </h1>
-            <p className="text-gray-600 mb-8 leading-relaxed">
-              빠른 시간 안에 연락드리겠습니다.<br />
-              감사합니다.
-            </p>
-            <button
-              onClick={() => (window.location.href = "/")}
-              className="px-6 py-3 bg-teal-600 text-white rounded-xl font-medium hover:bg-teal-700 transition-colors"
-            >
-              메인으로 돌아가기
-            </button>
-          </div>
-        </main>
-      </div>
+      <main className="flex min-h-screen items-center justify-center bg-stone-950 px-5 text-white">
+        <div className="w-full max-w-lg rounded-3xl bg-white p-8 text-center text-stone-950 shadow-2xl sm:p-12">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-amber-400 text-3xl">✓</div>
+          <h1 className="mt-6 text-3xl font-black">견적 요청이 접수됐습니다</h1>
+          <p className="mt-4 font-medium leading-relaxed text-stone-600">내용을 확인한 뒤 빠르게 연락드리겠습니다.<br />급한 문의는 바로 전화해주세요.</p>
+          <a href={phoneHref} className="mt-8 block rounded-xl bg-stone-950 px-6 py-4 font-black text-white">{phoneDisplay} 전화하기</a>
+          <Link href="/" className="mt-4 block py-2 text-sm font-bold text-stone-500">메인으로 돌아가기</Link>
+        </div>
+      </main>
     );
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-b from-slate-50 via-white to-teal-50">
-      <main className="flex-1 px-6 py-12">
-        <div className="max-w-xl mx-auto">
-          <div className="text-center mb-10">
-            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
-              시공 의뢰 문의
-            </h1>
-            <p className="text-gray-600">
-              아래 정보를 남겨주시면 빠르게 연락드립니다.
-            </p>
-          </div>
+    <main className="min-h-screen bg-stone-100 px-5 py-8 text-stone-950 sm:px-8 sm:py-14">
+      <div className="mx-auto max-w-5xl">
+        <Link href="/" className="text-sm font-black text-stone-600">← 타일마스터 홈</Link>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                작업 종류 <span className="text-teal-600">*</span>
-              </label>
-              <select
-                name="작업종류"
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white"
-              >
-                <option value="">선택해주세요</option>
-                <option value="화장실 리모델링">화장실 리모델링</option>
-                <option value="타일 시공">타일 시공</option>
-                <option value="하자 보수">하자 보수</option>
-                <option value="수전 교체">수전 교체</option>
-                <option value="천정돔 시공">천정돔 시공</option>
-                <option value="기타">기타</option>
-              </select>
+        <div className="mt-8 grid overflow-hidden rounded-3xl bg-white shadow-xl lg:grid-cols-[0.85fr_1.15fr]">
+          <section className="bg-stone-950 p-7 text-white sm:p-10">
+            <p className="text-sm font-black tracking-[0.2em] text-amber-300">무료 사진 견적</p>
+            <h1 className="mt-4 text-3xl font-black leading-tight sm:text-4xl">연락처와 지역만 남겨도<br />상담을 시작할 수 있어요</h1>
+            <p className="mt-5 font-medium leading-relaxed text-white/70">사진이 있으면 더 빠르게 안내해드립니다. 정확한 금액은 현장 확인 후 확정합니다.</p>
+
+            <div className="mt-8 space-y-4 border-t border-white/15 pt-8 text-sm font-bold text-white/85">
+              <p>✓ 욕실 · 주방 · 상가 · 베란다 · 현관</p>
+              <p>✓ 타일 전체 시공 · 부분 보수</p>
+              <p>✓ 충청도 전지역 · 경기 남부</p>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                작업 지역 <span className="text-teal-600">*</span>
-              </label>
-              <input
-                type="text"
-                name="지역"
-                required
-                placeholder="예: 청주시 흥덕구"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500"
-              />
+            <div className="mt-10 rounded-2xl bg-white/10 p-5">
+              <p className="text-sm font-bold text-white/65">바로 통화하고 싶다면</p>
+              <a href={phoneHref} className="mt-2 block text-2xl font-black text-amber-300">{phoneDisplay}</a>
             </div>
+          </section>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                희망 시기 <span className="text-teal-600">*</span>
-              </label>
-              <select
-                name="희망시기"
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white"
-              >
-                <option value="">선택해주세요</option>
-                <option value="빠른 시일 내">빠른 시일 내</option>
-                <option value="1주일 내">1주일 내</option>
-                <option value="2주일 내">2주일 내</option>
-                <option value="한 달 내">한 달 내</option>
-                <option value="상관없음">상관없음</option>
-              </select>
-            </div>
+          <section className="p-7 sm:p-10">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div>
+                <label htmlFor="work-type" className="mb-2 block text-sm font-black">어떤 작업이 필요하세요? *</label>
+                <select id="work-type" name="작업종류" required defaultValue="" className="w-full rounded-xl border border-stone-300 bg-white px-4 py-3.5 font-medium outline-none transition focus:border-amber-500 focus:ring-4 focus:ring-amber-100">
+                  <option value="" disabled>작업 분야 선택</option>
+                  <option>욕실 리모델링·타일</option>
+                  <option>주방 타일</option>
+                  <option>상가 타일</option>
+                  <option>베란다 타일</option>
+                  <option>현관 타일</option>
+                  <option>타일 하자·부분 보수</option>
+                  <option>기타</option>
+                </select>
+              </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                현장 사진 (선택)
-              </label>
-              <input
-                type="file"
-                name="사진"
-                accept="image/*"
-                multiple
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white text-sm"
-              />
-              <p className="text-xs text-gray-500 mt-1">
-                최대 3장, 시공 부위 사진이 있으면 빠른 견적이 가능합니다
-              </p>
-            </div>
+              <div>
+                <label htmlFor="location" className="mb-2 block text-sm font-black">작업 지역 *</label>
+                <input id="location" type="text" name="지역" required placeholder="예: 충주시 연수동" className="w-full rounded-xl border border-stone-300 px-4 py-3.5 font-medium outline-none transition placeholder:text-stone-400 focus:border-amber-500 focus:ring-4 focus:ring-amber-100" />
+              </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                이름 <span className="text-teal-600">*</span>
-              </label>
-              <input
-                type="text"
-                name="이름"
-                required
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500"
-              />
-            </div>
+              <div>
+                <label htmlFor="phone" className="mb-2 block text-sm font-black">연락받을 번호 *</label>
+                <input id="phone" type="tel" name="연락처" required inputMode="tel" autoComplete="tel" placeholder="010-0000-0000" className="w-full rounded-xl border border-stone-300 px-4 py-3.5 font-medium outline-none transition placeholder:text-stone-400 focus:border-amber-500 focus:ring-4 focus:ring-amber-100" />
+              </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                연락처 <span className="text-teal-600">*</span>
-              </label>
-              <input
-                type="tel"
-                name="연락처"
-                required
-                placeholder="010-0000-0000"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500"
-              />
-            </div>
+              <div>
+                <label htmlFor="photos" className="mb-2 block text-sm font-black">현장 사진 <span className="font-medium text-stone-400">(선택)</span></label>
+                <input id="photos" type="file" name="사진" accept="image/*" multiple className="w-full rounded-xl border border-dashed border-stone-300 bg-stone-50 px-4 py-4 text-sm font-medium file:mr-3 file:rounded-lg file:border-0 file:bg-amber-400 file:px-4 file:py-2 file:font-black" />
+                <p className="mt-2 text-xs font-medium text-stone-500">시공 부위가 보이는 사진을 첨부하면 상담이 빨라집니다.</p>
+              </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                추가 메모 (선택)
-              </label>
-              <textarea
-                name="메모"
-                rows={4}
-                placeholder="궁금하신 점이나 전달 사항을 자유롭게 적어주세요"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500"
-              />
-            </div>
+              <div>
+                <label htmlFor="message" className="mb-2 block text-sm font-black">궁금한 점 <span className="font-medium text-stone-400">(선택)</span></label>
+                <textarea id="message" name="메모" rows={3} placeholder="예: 베란다 바닥 타일이 들떴어요" className="w-full resize-none rounded-xl border border-stone-300 px-4 py-3.5 font-medium outline-none transition placeholder:text-stone-400 focus:border-amber-500 focus:ring-4 focus:ring-amber-100" />
+              </div>
 
-            <div className="pt-4">
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full px-6 py-4 bg-teal-600 text-white rounded-xl font-semibold text-lg hover:bg-teal-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {loading ? "제출 중..." : "문의 보내기"}
+              <button type="submit" disabled={loading} className="w-full rounded-xl bg-stone-950 px-6 py-4 text-lg font-black text-white transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:opacity-60">
+                {loading ? "접수 중입니다..." : "무료 견적 요청하기"}
               </button>
-            </div>
-
-            <div className="text-center pt-4">
-              <button
-                type="button"
-                onClick={() => (window.location.href = "/")}
-                className="text-sm text-gray-500 hover:text-teal-600 transition-colors"
-              >
-                ← 메인으로 돌아가기
-              </button>
-            </div>
-          </form>
+              <p className="text-center text-xs font-medium leading-relaxed text-stone-400">입력하신 정보는 견적 상담과 연락 목적으로만 사용합니다.</p>
+            </form>
+          </section>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }

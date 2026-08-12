@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function Gallery() {
   // 47장의 사진을 배열로 만들기
   const photos = Array.from({ length: 47 }, (_, i) => {
@@ -15,7 +17,7 @@ export default function Gallery() {
           {/* 상단 헤드라인 */}
           <div className="text-center mb-10">
             <p className="text-sm tracking-widest text-teal-600 font-medium mb-3">
-              TILE MASTER · 타일 마스터
+              타일마스터 · 슬아타일 직접 시공
             </p>
             <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               시공 사례 갤러리
@@ -40,13 +42,14 @@ export default function Gallery() {
             {photos.map((src, i) => (
               <div
                 key={src}
-                className="aspect-square bg-white rounded-2xl border border-teal-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow"
+                className="relative aspect-square bg-white rounded-2xl border border-teal-100 shadow-sm overflow-hidden hover:shadow-md transition-shadow"
               >
-                <img
+                <Image
                   src={src}
                   alt={`타일 시공 사례 ${i + 1}`}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
+                  fill
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className="object-cover"
                 />
               </div>
             ))}
@@ -82,10 +85,10 @@ export default function Gallery() {
       {/* 푸터 */}
       <footer className="px-6 py-8 border-t border-teal-100/60 bg-white">
         <div className="max-w-4xl mx-auto text-center text-sm text-gray-500 space-y-2">
-          <p className="font-semibold text-gray-700">TILE MASTER · 타일 마스터</p>
+          <p className="font-semibold text-gray-700">타일마스터 · 슬아타일 직접 시공</p>
           <p>타일 시공 문의: 010-3446-4858</p>
           <p>시공 가능 지역: 충청도 전지역 · 경기 남부</p>
-          <p className="text-xs text-gray-400 pt-2">© 2026 Tile Master. All rights reserved.</p>
+          <p className="text-xs text-gray-400 pt-2">© 2026 타일마스터. All rights reserved.</p>
         </div>
       </footer>
     </div>

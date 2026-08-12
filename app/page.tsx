@@ -1,318 +1,249 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+
+const phoneDisplay = "010-3446-4858";
+const phoneHref = "tel:01034464858";
+
+const services = [
+  { title: "욕실", desc: "욕실 전체 리모델링, 타일 덧방, 도기·수전 교체" },
+  { title: "주방", desc: "싱크대 벽면·바닥 타일과 부분 보수" },
+  { title: "상가", desc: "영업 일정과 동선을 고려한 바닥·벽 타일 시공" },
+  { title: "베란다", desc: "들뜸·깨짐 보수부터 바닥 타일 전체 시공" },
+  { title: "현관", desc: "공간과 현장 상태에 맞춘 타일 교체·보수" },
+  { title: "하자 보수", desc: "깨짐, 들뜸, 줄눈 등 필요한 부분만 정확히 보수" },
+];
+
+const trustPoints = [
+  ["직접 상담 · 직접 시공", "상담부터 현장 확인, 시공까지 슬아타일이 직접 진행합니다."],
+  ["확정 견적 후 추가비용 없음", "현장을 확인하고 작업 범위를 정한 뒤 정확한 금액을 안내합니다."],
+  ["47개 현장 사진 공개", "말보다 실제 시공 결과를 먼저 확인하실 수 있습니다."],
+  ["시공 후 하자 상담", "공사가 끝난 뒤에도 불편한 점을 상담해드립니다."],
+];
+
+const featuredPhotos = [
+  "/tile-09.jpg",
+  "/tile-16.jpg",
+  "/tile-19.jpg",
+  "/tile-25.jpg",
+  "/tile-33.jpg",
+  "/tile-47.jpg",
+];
 
 export default function Home() {
-  const [scrollY, setScrollY] = useState(0);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const services = [
-    { num: "01", title: "화장실 리모델링", desc: "철거부터 마감까지 전체 시공" },
-    { num: "02", title: "욕실 타일 시공", desc: "벽·바닥 타일 시공과 줄눈 마감" },
-    { num: "03", title: "주방 타일 시공", desc: "싱크대 벽면·바닥 타일" },
-    { num: "04", title: "베란다 · 현관 타일", desc: "공간에 맞는 자재와 마감" },
-    { num: "05", title: "상가 · 매장 타일", desc: "영업 일정에 맞춘 빠른 시공" },
-    { num: "06", title: "타일 하자 보수", desc: "깨짐·들뜸·줄눈 문제 보수" },
-    { num: "07", title: "수전 교체", desc: "세면대·샤워기·주방 수전" },
-    { num: "08", title: "천정돔 시공", desc: "방수 천정 단단한 마감" },
-    { num: "09", title: "싱크대 전체 시공", desc: "협력 업체와 함께 진행" },
-  ];
-
-  const promises = [
-    { num: "01", text: "현장 사진 확인 후 예상 견적 안내" },
-    { num: "02", text: "작업 범위와 추가 비용 사전 설명" },
-    { num: "03", text: "철거 필요 여부 정확히 확인" },
-    { num: "04", text: "자재 선택과 시공 방식 상담" },
-    { num: "05", text: "시공 후 하자 상담 가능" },
-  ];
-
-  const featuredPhotos = [
-    "/tile-09.jpg",
-    "/tile-16.jpg",
-    "/tile-19.jpg",
-    "/tile-25.jpg",
-    "/tile-33.jpg",
-    "/tile-47.jpg",
-  ];
-
   return (
-    <div className="bg-[#fafafa] text-[#171717] overflow-x-hidden">
-      
-      {/* 풀스크린 히어로 */}
-      <section className="relative min-h-[100vh] w-full flex items-center justify-center overflow-hidden bg-white">
-        <div 
-          className="absolute inset-0 z-0"
-          style={{
-            transform: mounted ? `translateY(${scrollY * 0.3}px)` : "none",
-          }}
-        >
-          <img
-            src="/tile-09.jpg"
-            alt="타일 시공"
-            className="w-full h-full object-cover scale-110"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/40 to-white/80" />
-        </div>
-
-        {/* 상단 네비 */}
-        <div className="absolute top-0 left-0 right-0 z-20 px-5 sm:px-10 py-4 flex justify-between items-center text-xs tracking-[0.2em] uppercase">
-          <span className="text-[#0a0a0a] font-bold">Tile Master</span>
-          <span className="text-[#171717] font-semibold hidden sm:block">EST. 2024</span>
-        </div>
-
-        {/* 히어로 콘텐츠 + 버튼 */}
-        <div className="relative z-10 text-center px-6 max-w-2xl py-12 sm:py-16">
-          <p className="text-xs sm:text-sm tracking-[0.4em] text-teal-800 font-bold mb-4 uppercase drop-shadow-sm">
-            Premium Tile Craft
-          </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-[#0a0a0a] mb-4 leading-[1.15] tracking-tight drop-shadow-sm">
-            끝까지 책임지는
-            <br />
-            <span className="italic font-semibold">타일 시공</span>
-          </h1>
-          <div className="w-12 h-0.5 bg-teal-700 mx-auto mb-5" />
-          <p className="text-base sm:text-lg text-[#171717] font-semibold tracking-wide leading-relaxed mb-8 max-w-md mx-auto drop-shadow-sm">
-            철거부터 마감까지, 시공 후 하자까지.
-            <br />
-            현장 사진 한 장으로 시작합니다.
-          </p>
-
-          {/* 히어로 안 버튼 */}
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <button
-              onClick={() => (window.location.href = "/inquiry")}
-              className="flex-1 group px-6 py-4 bg-[#0a0a0a] text-white font-bold text-sm tracking-[0.2em] uppercase hover:bg-teal-700 transition-all duration-500 shadow-xl"
-            >
-              📷 사진 견적 받기
-              <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
-            </button>
-            <button
-              onClick={() => (window.location.href = "tel:01034464858")}
-              className="flex-1 group px-6 py-4 bg-white text-[#0a0a0a] border-2 border-[#0a0a0a] font-bold text-sm tracking-[0.2em] uppercase hover:bg-[#0a0a0a] hover:text-white transition-all duration-500 shadow-xl"
-            >
-              📞 010-3446-4858
-            </button>
+    <main className="min-h-screen overflow-x-hidden bg-stone-50 pb-20 text-stone-950 md:pb-0">
+      <header className="absolute inset-x-0 top-0 z-30 border-b border-white/20 bg-stone-950/35 text-white backdrop-blur-sm">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+          <div>
+            <p className="text-lg font-black tracking-tight">타일마스터</p>
+            <p className="text-[10px] font-semibold tracking-[0.18em] text-white/70">TILE &amp; REMODELING</p>
           </div>
-
-          {/* 지역 정보 */}
-          <p className="text-xs sm:text-sm text-[#171717] font-semibold mt-6 tracking-wider drop-shadow-sm">
-            충청도 전지역 · 경기 남부 출장 시공
-          </p>
+          <a
+            href={phoneHref}
+            className="rounded-full border border-white/60 px-4 py-2 text-sm font-bold transition hover:bg-white hover:text-stone-950"
+            aria-label={`${phoneDisplay}로 전화 상담`}
+          >
+            전화 상담 {phoneDisplay}
+          </a>
         </div>
+      </header>
 
-        {/* 스크롤 인디케이터 */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10">
-          <div className="flex flex-col items-center gap-2 text-[#0a0a0a] text-[10px] tracking-[0.3em] uppercase font-bold">
-            <span>Scroll</span>
-            <div className="w-px h-6 bg-gradient-to-b from-[#0a0a0a] to-transparent" />
-          </div>
-        </div>
-      </section>
+      <section className="relative isolate min-h-[760px] overflow-hidden bg-stone-900 text-white sm:min-h-[820px]">
+        <Image
+          src="/tile-09.jpg"
+          alt="슬아타일 욕실 타일 시공 현장"
+          fill
+          priority
+          sizes="100vw"
+          className="-z-20 object-cover"
+        />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-stone-950/95 via-stone-950/75 to-stone-950/25" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-t from-stone-950 via-transparent to-stone-950/20" />
 
-      {/* 시공 가능 지역 */}
-      <section className="relative py-12 sm:py-16 px-5 sm:px-6 bg-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-xs sm:text-sm tracking-[0.4em] text-teal-700 mb-4 uppercase font-bold">Service Area</p>
-          <h2 className="text-2xl sm:text-3xl font-serif font-bold mb-7 tracking-wide text-[#0a0a0a]">
-            시공 가능 지역
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#e5e5e5]">
-            <div className="bg-white p-6 sm:p-7">
-              <p className="text-teal-700 text-xs tracking-[0.3em] uppercase mb-2 font-bold">Chungcheong</p>
-              <p className="text-[#0a0a0a] text-base sm:text-lg font-semibold leading-relaxed">
-                충청도 전지역<br />
-                대전 · 세종 · 천안 · 청주
-              </p>
+        <div className="mx-auto flex min-h-[760px] max-w-6xl items-center px-5 pb-16 pt-28 sm:min-h-[820px] sm:px-8">
+          <div className="max-w-3xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-bold backdrop-blur">
+              <span className="h-2 w-2 rounded-full bg-amber-400" />
+              충청도 전지역 · 경기 남부 무료 상담
             </div>
-            <div className="bg-white p-6 sm:p-7">
-              <p className="text-teal-700 text-xs tracking-[0.3em] uppercase mb-2 font-bold">Gyeonggi South</p>
-              <p className="text-[#0a0a0a] text-base sm:text-lg font-semibold leading-relaxed">
-                경기 남부<br />
-                평택 · 용인 · 안산 · 수원
-              </p>
+
+            <p className="mb-4 text-sm font-black tracking-[0.22em] text-amber-300">현장에 맞춰, 필요한 만큼 정확하게</p>
+            <h1 className="text-balance text-4xl font-black leading-[1.12] tracking-tight sm:text-6xl lg:text-7xl">
+              욕실부터 주방·상가·<br className="hidden sm:block" />베란다·현관까지
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg font-semibold leading-relaxed text-white/90 sm:text-2xl">
+              타일 시공과 부분 보수, 철거부터 마감까지.<br />
+              슬아타일이 직접 확인하고 끝까지 책임집니다.
+            </p>
+
+            <div className="mt-8 grid max-w-2xl gap-3 sm:grid-cols-2">
+              <Link
+                href="/inquiry"
+                className="group flex min-h-16 items-center justify-center rounded-xl bg-amber-400 px-6 py-4 text-base font-black text-stone-950 shadow-xl transition hover:bg-amber-300"
+              >
+                사진으로 무료 견적받기
+                <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
+              </Link>
+              <a
+                href={phoneHref}
+                className="flex min-h-16 items-center justify-center rounded-xl border-2 border-white bg-white/10 px-6 py-4 text-base font-black text-white backdrop-blur transition hover:bg-white hover:text-stone-950"
+              >
+                지금 전화 상담
+              </a>
+            </div>
+
+            <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold text-white/85">
+              <span>✓ 사진상담 무료</span>
+              <span>✓ 방문견적 무료</span>
+              <span>✓ 직접 상담·시공</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 시공 분야 */}
-      <section className="relative py-16 sm:py-20 px-5 sm:px-6 bg-[#fafafa]">
-        <div className="max-w-5xl mx-auto">
-          <div className="mb-10 sm:mb-14 text-center">
-            <p className="text-xs sm:text-sm tracking-[0.4em] text-teal-700 mb-4 uppercase font-bold">Services</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#0a0a0a] mb-4 tracking-tight">
-              시공 분야
+      <section className="relative z-10 -mt-10 px-5 sm:px-8">
+        <div className="mx-auto grid max-w-6xl overflow-hidden rounded-2xl bg-white shadow-2xl sm:grid-cols-3">
+          <div className="border-b border-stone-200 p-6 sm:border-b-0 sm:border-r">
+            <p className="text-xs font-black tracking-[0.18em] text-amber-700">대표 욕실 시공가</p>
+            <p className="mt-2 text-3xl font-black">225만원부터</p>
+            <p className="mt-1 text-sm font-medium text-stone-500">안방 욕실 · 덧방 기준</p>
+          </div>
+          <div className="border-b border-stone-200 p-6 sm:border-b-0 sm:border-r">
+            <p className="text-xs font-black tracking-[0.18em] text-amber-700">기본 포함</p>
+            <p className="mt-2 text-lg font-black">철거 · 타일 · 세면대 · 양변기</p>
+            <p className="mt-1 text-sm font-medium text-stone-500">현장 상태에 따라 범위 확인</p>
+          </div>
+          <div className="p-6">
+            <p className="text-xs font-black tracking-[0.18em] text-amber-700">정확한 견적</p>
+            <p className="mt-2 text-lg font-black">현장 확인 후 금액 확정</p>
+            <p className="mt-1 text-sm font-medium text-stone-500">확정 뒤에는 안내 없는 추가비용 없음</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 py-20 sm:px-8 sm:py-28">
+        <div className="mx-auto max-w-6xl">
+          <div className="max-w-3xl">
+            <p className="text-sm font-black tracking-[0.2em] text-amber-700">시공 분야</p>
+            <h2 className="mt-3 text-balance text-3xl font-black tracking-tight sm:text-5xl">
+              화장실만 하는 타일 업체가 아닙니다
             </h2>
-            <div className="w-12 h-0.5 bg-teal-700 mx-auto mb-5" />
-            <p className="text-[#404040] text-base font-medium leading-relaxed max-w-md mx-auto">
-              욕실 · 주방 · 상가 · 베란다 · 현관까지<br />
-              현장에 맞춰 시공·보수 작업을 진행합니다
+            <p className="mt-5 text-lg font-medium leading-relaxed text-stone-600">
+              욕실 · 주방 · 상가 · 베란다 · 현관까지, 현장을 먼저 보고 전체 시공과 필요한 부분 보수를 나눠 안내합니다.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[#e5e5e5]">
-            {services.map((s) => (
-              <div
-                key={s.title}
-                className="group bg-white p-6 sm:p-7 hover:bg-[#fafafa] transition-all duration-500"
-              >
-                <p className="text-xs tracking-[0.3em] text-teal-700 mb-3 font-bold">
-                  {s.num}
-                </p>
-                <h3 className="text-lg sm:text-xl font-serif font-bold text-[#0a0a0a] mb-2 group-hover:text-teal-700 transition-colors">
-                  {s.title}
-                </h3>
-                <p className="text-sm text-[#525252] font-medium leading-relaxed">
-                  {s.desc}
-                </p>
-                <div className="w-6 h-0.5 bg-teal-600/40 mt-5 group-hover:w-12 group-hover:bg-teal-600 transition-all duration-500" />
-              </div>
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((service, index) => (
+              <article key={service.title} className="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                <span className="text-xs font-black tracking-[0.2em] text-amber-700">0{index + 1}</span>
+                <h3 className="mt-3 text-2xl font-black">{service.title}</h3>
+                <p className="mt-3 font-medium leading-relaxed text-stone-600">{service.desc}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 견적 전 안내 */}
-      <section className="relative py-16 sm:py-20 px-5 sm:px-6 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <div className="mb-10 text-center">
-            <p className="text-xs sm:text-sm tracking-[0.4em] text-teal-700 mb-4 uppercase font-bold">Promise</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#0a0a0a] mb-4 tracking-tight leading-tight">
-              견적 전<br />
-              꼭 확인하고 안내드립니다
-            </h2>
-            <div className="w-12 h-0.5 bg-teal-700 mx-auto" />
-          </div>
-
-          <div className="space-y-px bg-[#e5e5e5]">
-            {promises.map((p) => (
-              <div
-                key={p.num}
-                className="group bg-white p-6 sm:p-7 flex items-start gap-4 sm:gap-6 hover:bg-[#fafafa] transition-colors"
-              >
-                <span className="text-2xl sm:text-3xl font-serif font-bold text-teal-700 flex-shrink-0">
-                  {p.num}
-                </span>
-                <p className="text-[#0a0a0a] font-semibold text-base sm:text-lg leading-relaxed pt-1">
-                  {p.text}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 시공 사례 */}
-      <section className="relative py-16 sm:py-20 px-5 sm:px-6 bg-[#fafafa]">
-        <div className="max-w-5xl mx-auto">
-          <div className="mb-10 text-center">
-            <p className="text-xs sm:text-sm tracking-[0.4em] text-teal-700 mb-4 uppercase font-bold">Portfolio</p>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#0a0a0a] mb-4 tracking-tight">
-              시공 사례
-            </h2>
-            <div className="w-12 h-0.5 bg-teal-700 mx-auto mb-5" />
-            <p className="text-[#404040] text-base font-medium leading-relaxed">
-              실제 시공한 현장 47곳의 사진을 확인하세요
+      <section className="bg-stone-950 px-5 py-20 text-white sm:px-8 sm:py-28">
+        <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+          <div>
+            <p className="text-sm font-black tracking-[0.2em] text-amber-300">왜 슬아타일인가요?</p>
+              <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">전화하기 전에<br />불안한 것부터 줄였습니다</h2>
+            <p className="mt-6 max-w-md text-lg font-medium leading-relaxed text-white/65">
+              가격이 더 붙을까, 누가 시공할까, 끝난 뒤에도 연락이 될까. 고객이 가장 걱정하는 부분을 먼저 설명합니다.
             </p>
           </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3 mb-8">
-            {featuredPhotos.map((src, i) => (
-              <div
-                key={src}
-                className="group aspect-[4/5] bg-white overflow-hidden cursor-pointer relative shadow-md"
-                onClick={() => (window.location.href = "/gallery")}
-              >
-                <img
-                  src={src}
-                  alt={`타일 시공 사례 ${i + 1}`}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a]/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <p className="text-xs text-white tracking-[0.3em] uppercase font-bold">
-                    Project {String(i + 1).padStart(2, "0")}
-                  </p>
+          <div className="divide-y divide-white/15 border-y border-white/15">
+            {trustPoints.map(([title, desc], index) => (
+              <div key={title} className="grid gap-2 py-6 sm:grid-cols-[56px_1fr] sm:gap-4">
+                <span className="font-black text-amber-300">0{index + 1}</span>
+                <div>
+                  <h3 className="text-xl font-black">{title}</h3>
+                  <p className="mt-2 font-medium leading-relaxed text-white/65">{desc}</p>
                 </div>
               </div>
             ))}
           </div>
-
-          <div className="text-center">
-            <button
-              onClick={() => (window.location.href = "/gallery")}
-              className="group px-8 py-3 border-2 border-[#0a0a0a] text-[#0a0a0a] text-xs sm:text-sm tracking-[0.3em] uppercase font-bold hover:bg-[#0a0a0a] hover:text-white transition-all"
-            >
-              전체 시공 사례 보기
-              <span className="inline-block ml-2 group-hover:translate-x-2 transition-transform">→</span>
-            </button>
-          </div>
         </div>
       </section>
 
-      {/* 하단 콜투액션 */}
-      <section className="relative py-20 sm:py-24 px-5 sm:px-6 bg-[#0a0a0a] overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/20 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-400/10 rounded-full blur-3xl" />
-        </div>
-
-        <div className="relative max-w-3xl mx-auto text-center">
-          <p className="text-xs sm:text-sm tracking-[0.4em] text-teal-400 mb-4 uppercase font-bold">Get a Quote</p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-white mb-5 tracking-tight leading-tight">
-            지금 바로<br />
-            견적 받으세요
-          </h2>
-          <div className="w-12 h-0.5 bg-teal-400 mx-auto mb-5" />
-          <p className="text-white/90 text-base font-medium mb-8 leading-relaxed max-w-md mx-auto">
-            현장 사진과 간단한 정보만 보내주시면<br />
-            빠르게 연락드립니다
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-sm mx-auto">
-            <button
-              onClick={() => (window.location.href = "/inquiry")}
-              className="group px-6 py-4 bg-white text-[#0a0a0a] text-xs sm:text-sm tracking-[0.3em] uppercase font-bold hover:bg-teal-400 transition-all"
-            >
-              사진 견적
-              <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
-            </button>
-            <button
-              onClick={() => (window.location.href = "tel:01034464858")}
-              className="group px-6 py-4 bg-transparent border-2 border-white/50 text-white text-xs sm:text-sm tracking-[0.3em] uppercase font-bold hover:border-teal-400 hover:text-teal-400 transition-all"
-            >
-              바로 전화
-              <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* 푸터 */}
-      <footer className="bg-white border-t border-[#e5e5e5] px-5 sm:px-6 py-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center space-y-4">
-            <p className="text-xs tracking-[0.5em] text-teal-700 uppercase font-bold">Tile Master</p>
-            <div className="w-12 h-px bg-[#e5e5e5] mx-auto" />
-            <p className="text-[#0a0a0a] font-serif text-xl font-bold">타일 마스터</p>
-            <div className="space-y-1.5 text-[#404040] text-sm font-medium pt-3">
-              <p>타일 시공 문의 · <span className="text-teal-700 font-bold">010-3446-4858</span></p>
-              <p>시공 가능 지역 · 충청도 전지역 · 경기 남부</p>
+      <section className="px-5 py-20 sm:px-8 sm:py-28">
+        <div className="mx-auto max-w-6xl">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-black tracking-[0.2em] text-amber-700">실제 시공 사례</p>
+              <h2 className="mt-3 text-3xl font-black sm:text-5xl">결과를 사진으로 확인하세요</h2>
+              <p className="mt-4 text-lg font-medium text-stone-600">실제 현장 47곳의 시공 사진을 공개합니다.</p>
             </div>
-            <p className="text-xs text-[#a3a3a3] font-medium pt-6 tracking-wider">
-              © 2026 TILE MASTER · ALL RIGHTS RESERVED
-            </p>
+            <Link href="/gallery" className="font-black text-stone-900 underline decoration-amber-400 decoration-4 underline-offset-8">
+              전체 시공사진 보기 →
+            </Link>
           </div>
+
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3">
+            {featuredPhotos.map((src, index) => (
+              <Link key={src} href="/gallery" className="group relative aspect-[4/5] overflow-hidden rounded-xl bg-stone-200">
+                <Image
+                  src={src}
+                  alt={`슬아타일 실제 시공 사례 ${index + 1}`}
+                  fill
+                  sizes="(max-width: 640px) 50vw, 33vw"
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-stone-950/80 to-transparent p-4 pt-12 text-xs font-black tracking-[0.18em] text-white">
+                  실제 현장 {String(index + 1).padStart(2, "0")}
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="px-5 pb-20 sm:px-8 sm:pb-28">
+        <div className="mx-auto max-w-6xl overflow-hidden rounded-3xl bg-amber-400 p-8 sm:p-14">
+          <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p className="text-sm font-black tracking-[0.2em] text-stone-700">상담은 어렵지 않습니다</p>
+              <h2 className="mt-3 text-3xl font-black leading-tight sm:text-5xl">현장 사진과 지역만 알려주세요</h2>
+              <p className="mt-5 max-w-2xl text-lg font-semibold leading-relaxed text-stone-800">
+                욕실·주방·상가·베란다·현관 어디든 괜찮습니다. 사진을 보고 가능한 작업과 다음 절차부터 안내해드립니다.
+              </p>
+            </div>
+            <div className="flex min-w-64 flex-col gap-3">
+              <Link href="/inquiry" className="rounded-xl bg-stone-950 px-7 py-4 text-center text-base font-black text-white transition hover:bg-stone-800">
+                무료 견적 요청하기
+              </Link>
+              <a href={phoneHref} className="rounded-xl border-2 border-stone-950 px-7 py-4 text-center text-base font-black text-stone-950 transition hover:bg-white">
+                {phoneDisplay} 전화
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-stone-200 bg-white px-5 py-10 sm:px-8">
+        <div className="mx-auto flex max-w-6xl flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xl font-black">타일마스터</p>
+            <p className="mt-1 text-xs font-bold tracking-[0.12em] text-amber-700">슬아타일 직접 시공</p>
+            <p className="mt-2 text-sm font-medium text-stone-500">욕실 · 주방 · 상가 · 베란다 · 현관 타일 시공 및 보수</p>
+            <p className="mt-1 text-sm font-medium text-stone-500">충청도 전지역 · 경기 남부</p>
+          </div>
+          <a href={phoneHref} className="text-lg font-black text-stone-950">{phoneDisplay}</a>
         </div>
       </footer>
 
-    </div>
+      <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 border-t border-stone-200 bg-white p-2 shadow-[0_-8px_30px_rgba(0,0,0,0.12)] md:hidden">
+        <a href={phoneHref} className="flex min-h-14 items-center justify-center rounded-lg text-sm font-black text-stone-950">
+          전화 상담
+        </a>
+        <Link href="/inquiry" className="flex min-h-14 items-center justify-center rounded-lg bg-amber-400 text-sm font-black text-stone-950">
+          사진 견적받기
+        </Link>
+      </div>
+    </main>
   );
 }
