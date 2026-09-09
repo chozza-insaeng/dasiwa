@@ -11,8 +11,12 @@ const geistSans = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://tilemaster.co.kr"),
   title: "타일마스터 | 욕실·주방·상가·베란다·현관 타일 시공",
-  description: "충청도 전지역·경기 남부 타일 시공 및 보수. 욕실, 주방, 상가, 베란다, 현관까지 현장에 맞춰 슬아타일이 직접 상담·시공합니다. 무료 사진상담과 방문견적.",
+  description: "증평·청주·괴산·음성·진천·보은·충주·제천·세종·대전 타일 시공 및 보수. 욕실, 주방, 상가, 베란다, 현관까지 슬아타일이 직접 상담·시공합니다. 무료 사진상담과 방문견적.",
   alternates: { canonical: "/" },
+  verification: {
+    google: "PuIk9LbEQfgRZjlj3Q9TaecP5ab7zowB_ntM0FGjgZg",
+    other: { "naver-site-verification": "e94352012ae2fc6f32414c796ae538814fa8a540" },
+  },
   openGraph: {
     type: "website",
     locale: "ko_KR",
@@ -39,7 +43,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     url: "https://tilemaster.co.kr",
     telephone: "+82-10-3446-4858",
     description: "욕실, 주방, 상가, 베란다, 현관 타일 시공 및 보수",
-    areaServed: ["충청도", "경기 남부"],
+    areaServed: ["증평군", "청주시", "괴산군", "음성군", "진천군", "보은군", "충주시", "제천시", "세종특별자치시", "대전광역시"],
   };
 
   return (

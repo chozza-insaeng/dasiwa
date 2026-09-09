@@ -1,6 +1,5 @@
-"use client";
-
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Gallery() {
   // 47장의 사진을 배열로 만들기
@@ -29,12 +28,12 @@ export default function Gallery() {
 
           {/* 메인 페이지로 돌아가기 버튼 */}
           <div className="mb-8 text-center">
-            <button
-              onClick={() => (window.location.href = "/")}
+            <Link
+              href="/"
               className="text-sm text-gray-500 hover:text-teal-600 transition-colors"
             >
               ← 메인으로 돌아가기
-            </button>
+            </Link>
           </div>
 
           {/* 사진 그리드 */}
@@ -64,18 +63,18 @@ export default function Gallery() {
               현장 사진과 간단한 정보만 보내주시면 빠르게 견적 안내드립니다
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button
-                onClick={() => (window.location.href = "/inquiry")}
+              <Link
+                href="/inquiry"
                 className="px-6 py-3 bg-white text-teal-700 rounded-xl font-semibold hover:bg-teal-50 transition-colors"
               >
                 📷 사진 보내고 견적 받기
-              </button>
-              <button
-                onClick={() => (window.location.href = "tel:01034464858")}
+              </Link>
+              <a
+                href="tel:01034464858"
                 className="px-6 py-3 bg-teal-800 text-white rounded-xl font-semibold hover:bg-teal-900 transition-colors"
               >
                 📞 010-3446-4858 바로 전화
-              </button>
+              </a>
             </div>
           </div>
 
@@ -87,7 +86,7 @@ export default function Gallery() {
         <div className="max-w-4xl mx-auto text-center text-sm text-gray-500 space-y-2">
           <p className="font-semibold text-gray-700">타일마스터 · 슬아타일 직접 시공</p>
           <p>타일 시공 문의: 010-3446-4858</p>
-          <p>시공 가능 지역: 충청도 전지역 · 경기 남부</p>
+          <p>출장 상담 지역: 증평 · 청주 · 괴산 · 음성 · 진천 · 보은 · 충주 · 제천 · 세종 · 대전</p>
           <p className="text-xs text-gray-400 pt-2">© 2026 타일마스터. All rights reserved.</p>
         </div>
       </footer>

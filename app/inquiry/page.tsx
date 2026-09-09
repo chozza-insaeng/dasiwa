@@ -57,7 +57,7 @@ export default function Inquiry() {
             <div className="mt-8 space-y-4 border-t border-white/15 pt-8 text-sm font-bold text-white/85">
               <p>✓ 욕실 · 주방 · 상가 · 베란다 · 현관</p>
               <p>✓ 타일 전체 시공 · 부분 보수</p>
-              <p>✓ 충청도 전지역 · 경기 남부</p>
+              <p>✓ 출장 상담: 증평 · 청주 · 괴산 · 음성 · 진천 · 보은 · 충주 · 제천 · 세종 · 대전</p>
             </div>
 
             <div className="mt-10 rounded-2xl bg-white/10 p-5">

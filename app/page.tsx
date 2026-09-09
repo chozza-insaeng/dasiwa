@@ -6,6 +6,15 @@ import Image from "next/image";
 const phoneDisplay = "010-3446-4858";
 const phoneHref = "tel:01034464858";
 
+const website = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://tilemaster.co.kr/#website",
+  name: "타일마스터",
+  alternateName: "슬아타일",
+  url: "https://tilemaster.co.kr/",
+};
+
 const services = [
   { title: "욕실", desc: "욕실 전체 리모델링, 타일 덧방, 도기·수전 교체" },
   { title: "주방", desc: "싱크대 벽면·바닥 타일과 부분 보수" },
@@ -34,6 +43,7 @@ const featuredPhotos = [
 export default function Home() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-stone-50 pb-20 text-stone-950 md:pb-0">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(website) }} />
       <header className="absolute inset-x-0 top-0 z-30 border-b border-white/20 bg-stone-950/35 text-white backdrop-blur-sm">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
           <div>
@@ -66,7 +76,7 @@ export default function Home() {
           <div className="max-w-3xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-bold backdrop-blur">
               <span className="h-2 w-2 rounded-full bg-amber-400" />
-              충청도 전지역 · 경기 남부 무료 상담
+              증평·청주 등 10개 지역 무료 상담
             </div>
 
             <p className="mb-4 text-sm font-black tracking-[0.22em] text-amber-300">현장에 맞춰, 필요한 만큼 정확하게</p>
@@ -230,7 +240,7 @@ export default function Home() {
             <p className="text-xl font-black">타일마스터</p>
             <p className="mt-1 text-xs font-bold tracking-[0.12em] text-amber-700">슬아타일 직접 시공</p>
             <p className="mt-2 text-sm font-medium text-stone-500">욕실 · 주방 · 상가 · 베란다 · 현관 타일 시공 및 보수</p>
-            <p className="mt-1 text-sm font-medium text-stone-500">충청도 전지역 · 경기 남부</p>
+            <p className="mt-1 text-sm font-medium text-stone-500">출장 상담 지역: 증평 · 청주 · 괴산 · 음성 · 진천 · 보은 · 충주 · 제천 · 세종 · 대전</p>
           </div>
           <a href={phoneHref} className="text-lg font-black text-stone-950">{phoneDisplay}</a>
         </div>
