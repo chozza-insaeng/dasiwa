@@ -11,7 +11,7 @@ const geistSans = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://tilemaster.co.kr"),
   title: "타일마스터 | 욕실·주방·상가·베란다·현관 타일 시공",
-  description: "증평·청주·괴산·음성·진천·보은·충주·제천·세종·대전 타일 시공 및 보수. 욕실, 주방, 상가, 베란다, 현관까지 슬아타일이 직접 상담·시공합니다. 무료 사진상담과 방문견적.",
+  description: "증평·청주·괴산·음성·진천·보은·충주·제천·세종·대전 타일 시공·보수 및 욕실 리모델링. 슬아타일 직접 시공, 무료 사진견적.",
   alternates: { canonical: "/" },
   verification: {
     google: "PuIk9LbEQfgRZjlj3Q9TaecP5ab7zowB_ntM0FGjgZg",
